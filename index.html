@@ -2,53 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Temp Mail – Instant Temporary Email Address</title>
+  <title>Real Temp Mail Clone</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script defer src="script.js"></script>
 </head>
 <body class="bg-light">
-
 <div class="container py-5">
-  <!-- Top Ad -->
-  <div class="text-center mb-3">
-    <div class="alert alert-secondary">👉 Ad will be placed here once approved.</div>
-  </div>
-
-  <h1 class="text-center mb-4">Temp Mail – Instant Temporary Email Address</h1>
-
-  <div class="card shadow-sm mb-4">
+  <h1 class="text-center mb-4">Real Temp Mail Clone</h1>
+  <div class="card mb-4 shadow-sm">
     <div class="card-body text-center">
-      <p class="mb-2"><strong>Your Temporary Email Address:</strong></p>
+      <h5>Your Temp Email:</h5>
       <div class="input-group mb-2">
-        <input type="text" id="email" class="form-control" readonly value="user17962@mail.tm">
+        <input type="text" id="email" class="form-control" readonly>
         <button class="btn btn-primary" onclick="copyEmail()">Copy</button>
       </div>
+      <button class="btn btn-success" onclick="generateEmail()">Generate New Email</button>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-9">
-      <div class="card shadow-sm mb-4">
-        <div class="card-body">
-          <h4>Inbox</h4>
-          <ul id="messages" class="list-group list-group-flush">
-            <li class="list-group-item"><strong>example@example.com</strong><br>Welcome!</li>
-            <li class="list-group-item"><strong>promo@store.com</strong><br>Special Offer Just for You</li>
-          </ul>
-        </div>
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="mb-0">Inbox</h5>
+        <button class="btn btn-outline-secondary btn-sm" onclick="fetchInbox()">Refresh Inbox</button>
       </div>
-    </div>
-    <div class="col-md-3">
-      <!-- Side Ad -->
-      <div class="alert alert-secondary">👉 Ad will be placed here once approved</div>
+      <ul id="messages" class="list-group"></ul>
     </div>
   </div>
 
-  <!-- Bottom Ad -->
-  <div class="text-center mt-4">
-    <div class="alert alert-secondary">👉 Ad will be placed here once approved</div>
+  <div class="card shadow-sm" id="message-view" style="display:none;">
+    <div class="card-body">
+      <h5>Message Details</h5>
+      <p><strong>From:</strong> <span id="msg-from"></span></p>
+      <p><strong>Subject:</strong> <span id="msg-subject"></span></p>
+      <p><strong>Body:</strong></p>
+      <div id="msg-body" class="bg-light p-2 border rounded"></div>
+    </div>
   </div>
 </div>
-
 </body>
 </html>
